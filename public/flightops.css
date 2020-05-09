@@ -32,7 +32,6 @@ body{
  min-height: 93.5vh;
  border-radius: 16px;
  position: relative;
-
 }
 .login-logo{
   margin: auto;
@@ -122,7 +121,7 @@ body{
 }
 
 .station-main{
-  width: 80%;
+  width: 90%;
 }
 .station-main-btn{
   margin: 0.75rem 0;
@@ -136,6 +135,8 @@ body{
 }
 .jumbotron{
   background-color:#f5f5f5;
+  margin-bottom: 0;
+  padding-top: 0;
 }
 
 .form-inputs-station{
@@ -228,12 +229,6 @@ padding-top: 3rem;
 
 
 
-@media (max-width: 500px) {
-  .right-footer{
-    display: none;
-  }
-}
-
 @media (max-width: 768px) {
   .flightstatus-bgscreen{
     display: none;
@@ -241,7 +236,17 @@ padding-top: 3rem;
   .flightstatus-smscreen{
     display: block;
   }
+  .right-footer{
+    display: none;
+  }
+  
+
+
 }
+
+
+
+
 
 .loader {
   display: none;

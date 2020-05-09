@@ -225,7 +225,7 @@ router.route("/flightstatus")
                                 retrivedFlightInfo.sort(function(a, b){
                                     return b.OSTA-a.OSTA
                                 })   
-                                res.render("stationpage/flightstatus",{retrivedFlightInfo:retrivedFlightInfo,localDeparture:localDeparture,today:today})},4000)
+                                res.render("stationpage/flightstatus",{retrivedFlightInfo:retrivedFlightInfo,localDeparture:localDeparture})},4000)
                            
                     
                             }else{

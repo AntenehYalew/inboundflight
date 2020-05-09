@@ -1,6 +1,6 @@
 <%- include("../partials/header") %> 
 
-<div class="container station-main">
+<div class="container">
     <div class="row">
         <div class="col-md-6">
                 <form class="form-inputs-station" action="/stationadmin" method="POST">
@@ -36,7 +36,7 @@
         <div class="col-md-6">
             <div class="container flight-list">
                 <% if(allFlights && allFlights.length >0){%>
-                    <h3>Selected inbound flights</h3>
+                    <h5>Selected inbound flights</h5>
                     <table>
                         <% allFlights.forEach(e =>{%>
                             <tr class="flightRow">

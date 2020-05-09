@@ -148,9 +148,11 @@ padding-top: 3rem;
 .flight-list{
   margin: auto;
   width: 100%;
-  padding-top: 2rem;
+  padding: 2rem 0 0 0;
 }
-
+.flight-list h5{
+  text-align: center;
+}
 .flight-list table{
   margin-bottom: 2rem;
 }
@@ -239,8 +241,12 @@ padding-top: 3rem;
   .right-footer{
     display: none;
   }
-  
-
+  .form-inputs-station{
+    padding-top: 0;
+    }
+  .flightstatus{
+    margin-top: -3rem;
+  }
 
 }
 

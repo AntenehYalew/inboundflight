@@ -35,10 +35,10 @@ router.route("/")
                         req.session.user_station = foundUser[0].user_station;
                         req.session.user_flightNumber = foundUser[0].user_flightNumber;
                         if(user_name=== "ADMIN"){ 
-                            req.flash("success", "Succesfully Loggen in")
+                            req.flash("success", "Succesfully Logged in")
                             res.redirect("/adminpage")
                         }else{
-                            req.flash("success", "Succesfully Loggen in")
+                            req.flash("success", "Succesfully Logged in")
                             res.redirect("/stationpage")
                         }
                         

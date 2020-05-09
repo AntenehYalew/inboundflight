@@ -48,9 +48,12 @@ app.set("view engine", "ejs");
 
 // Connection To Local Server 
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
-
-app.listen(process.env.PORT || 3000, ()=>{
+app.listen(port, ()=>{
     console.log("Flight Ops Connected to local server 3000");
 });
 

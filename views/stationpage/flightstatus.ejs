@@ -1,0 +1,133 @@
+<%- include("../partials/header") %> 
+
+<div class="container" >
+    <div class="flightstatus">
+            <% if(retrivedFlightInfo && retrivedFlightInfo.length>0){%>
+                <div class="flightstatus-bgscreen">
+                    <small class="bgscreen-note">**Best Viewed on a cellphone as it was intended for a cellphone usage**</small>
+                    <div class="flightstatus-header">
+                        Selected Flights status connecting <%=userFlight  %> <p id="hidden-deptime" style="display: none;" ><%= localDeparture%> </p>
+                       </div>
+                <div class="row bgscreen-devider">
+                    <div class="col-2">
+                        <h5>Flight</h5>
+                    </div>
+                    <div class="col-2">
+                      <h5>Routing </h5>
+                    </div>
+                    <div class="col-2">
+                        <h5>STD </h5>
+                    </div>
+                    <div class="col-2">
+                       <h5>ATD </h5>
+                    </div>
+                    <div class="col-2">
+                        <h5>STA </h5>
+                    </div>
+                    <div class="col-2">
+                       <h5>Flight Status </h5>
+                    </div>
+                </div>
+                <%retrivedFlightInfo.forEach(e => {%>
+                    <div class="row bgscreen-devider">
+                    <div class="col-2">
+                        <p><%= e.flightNumber%></p>
+                    </div>
+                    <div class="col-2">   
+                       <p> <%= e.routing %></p>
+                    </div>
+                    <div class="col-2">
+                       <p> <%= e.STD %></p>
+                    </div>
+                    <div class="col-2">
+                   <p> <%= e.ATD %>  </p>
+                    </div>
+                    <div class="col-2">
+                     <p>  <%= e.STA %></p>
+                    </div>
+                    <div class="col-2 status">
+                        <p> <span><%= e.status%></span> <%= e.statusTime %></p>
+                    </div>
+                </div>
+                <%});  %> 
+               
+            </div>
+
+            <div class="flightstatus-smscreen">
+                <div class="flightstatus-header">
+                   Selected Flights status connecting <%=userFlight  %> <p id="hidden-deptime" style="display: none;" ><%= localDeparture%> </p>
+                  </div>
+                <%retrivedFlightInfo.forEach(e => {%>
+                    <div class="row">
+                    <div class="col-3">
+                        <small><i class="fas fa-plane"></i></small>
+                        <p><%= e.flightNumber%></p>
+                    </div>
+                    <div class="col-3">
+                        <small>STD</small>
+                        <p><%= e.STD %></p>
+                    </div>
+                    <div class="col-3">
+                        <small>ATD</small>
+                        <p> <%= e.ATD %>  </p>
+                    </div>
+                    <div class="col-3">
+                        <small>STA</small>
+                      <p> <%= e.STA %></p>
+                    </div>
+               
+                </div>
+                <div class="row smscreen-devider">
+                    <div class="col-3">   
+                       <p> <%= e.routing %></p>
+                    </div>
+                    <div class="col-9 status ">
+                       <p> <span><%= e.status%></span> <%= e.statusTime %></p>
+                    </div>
+                </div>
+                
+                <%});  %> 
+             
+            </div>
+
+
+
+            <%}%>
+  
+    </div>
+
+
+
+</div>
+<script>
+
+    const status = document.querySelectorAll(".status");
+    const statusContent = document.querySelectorAll(".status p span");
+    const localDeparture = document.getElementById("hidden-deptime").innerText;
+    statusContent.forEach((e,index)=>{
+        if(e.innerText.includes("Canceled") === true || e.innerText.includes("Unknown") === true || e.innerText.includes("Diverted to") === true){
+            status[index].style.backgroundColor = "#d92638"
+        }else if(e.innerText.includes("Landed") === true){
+            status[index].style.backgroundColor = "#a5d9b1"
+
+        }else{  
+            
+            let timetoDep = localDeparture - Math.round((new Date()).getTime() / 1000); 
+          
+            if( timetoDep < 7200 && timetoDep >5400) { 
+                if(e.innerText.includes("Delayed") === true){
+                    status[index].style.backgroundColor = "#dd3c4c"
+                }else{
+                    status[index].style.backgroundColor = "#eb939b"
+                }   
+            }else if(timetoDep<5400){
+                status[index].style.backgroundColor = "#d92638"
+                
+            }
+        }
+    })
+
+</script>
+
+<%- include("../partials/footer") %> 
+

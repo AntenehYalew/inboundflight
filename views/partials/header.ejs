@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px|Ubuntu:400,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/aircraft.png" type="image/png" sizes="16*16">
+    <link rel="stylesheet" href="../flightops.css">
+    <script src="https://kit.fontawesome.com/3513d5fe97.js" crossorigin="anonymous"></script>
+    
+    <title>Inbound Management Ops</title>
+</head>
+
+<body>
+<div class="maincontainer">
+    <%if(loggedUser){%>
+    <nav class="navbar bg-navbar">
+        <div class="container">
+                <a class="navbar-brand" href="/stationpage">Home</a>  
+                <a class="" href="/logout"><i class="fas fa-sign-out-alt"></i> <%=loggedUser%></a>         
+        </div>
+      </nav>
+      <div class="flash-div">
+        <% if(error && error.length>0){ %>
+          <div class="alert alert-danger flashmessage" role="alert">
+            <h6><%= error%></h6>
+          </div>
+       <% }else if (success && success.length>0){%>
+        <div class="alert alert-info flashmessage" role="alert">
+          <h6> <%= success%></h6>
+        </div>
+       <%}%>
+      </div>
+
+    <% }%>
+
+   
+  
+
+
+  <!--   <div class="container"> -->
+
+   
+
+
+
+
+   
+

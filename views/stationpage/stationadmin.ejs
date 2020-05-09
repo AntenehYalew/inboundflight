@@ -1,0 +1,73 @@
+<%- include("../partials/header") %> 
+
+<div class="container station-main">
+    <div class="row">
+        <div class="col-md-6">
+                <form class="form-inputs-station" action="/stationadmin" method="POST">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="flightdetail" class="sr-only">Flight detail</label>
+                            <input type="text" id="inputtext" name="flight" class="form-control" placeholder="XX1234" minlength="3" maxlength="6" required autofocus>
+                        </div>
+                        <div class="col-md-7">
+                            <label for="timezone" class="sr-only">Time zone</label>
+                              <select class="custom-select" id="" name="timezone" required>
+                                <option value="">Departure time zone</option>
+                                <option value='{"time_zone":"America/New_York", "readable_time_zone":"Eastern Daylight Time"}'>Eastern Daylight Time</option>
+                                <option  value='{"time_zone":"America/Chicago", "readable_time_zone":"Central Daylight Time"}' >Central Daylight Time</option>
+                                <option  value='{"time_zone":"America/Denver", "readable_time_zone":"Mountain Daylight Time"}'>Mountain Daylight Time</option>
+                                <option  value='{"time_zone":"America/Phoenix", "readable_time_zone":"Mountain Standard Time"}'>Mountain Standard Time</option>
+                                <option  value='{"time_zone":"America/Los_Angeles", "readable_time_zone":"Pacific Daylight Time"}'>Pacific Daylight Time</option>
+                                <option value='{"time_zone":"America/Anchorage", "readable_time_zone":"Alaska Daylight Time"}'>Alaska Daylight Time</option>
+                                <option  value='{"time_zone":"America/Honolulu", "readable_time_zone":"Hawaii-Aleutian Standard Time"}' >Hawaii-Aleutian Standard Time</option>
+                              </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-lg btn-block signinbtn" type="submit">Add a flight</button>
+        
+                </form>
+    
+       
+    </div>
+            
+            
+ 
+     
+        <div class="col-md-6">
+            <div class="container flight-list">
+                <% if(allFlights && allFlights.length >0){%>
+                    <h3>Selected inbound flights</h3>
+                    <table>
+                        <% allFlights.forEach(e =>{%>
+                            <tr class="flightRow">
+                                <td> <form id="flightedit" action="/stationadmin/<%=e.flight_id%>" method="get">
+                                    <button class="btn" type="submit"><i class="fas fa-edit flight-edit"></i></button>
+                                </form>
+                                </td> 
+                                <td><%=e.flight_number%> </td>
+                                <td><%=e.readable_time_zone%> </td>
+                                <td> <form id="flightdelete" action="/stationadmin/<%=e.flight_id%>?_method=DELETE" method="POST">
+                                    <button class="btn" type="submit"><i class="far fa-trash-alt flight-delete"></i></button>
+                                </form>
+                                </td>
+                            </tr>
+                        <%}) %> 
+                    </table>  
+                <%}else{%>
+                    <h3>No Selected inbound flights</h3>
+                <%} %> 
+               
+              
+          
+
+              
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+ 
+
+
+<%- include("../partials/footer") %> 

@@ -1,0 +1,57 @@
+<%- include("../partials/header")  %> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+                <form class="form-signin" action="/adminpage" method="POST">
+                    <div class="form-inputs">
+                    <label for="userid" class="sr-only">USER name</label>
+                    <input type="text" id="inputtext" name="username" class="form-control" placeholder="User Name"  required autofocus >
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                    <label for="userstation" class="sr-only">User Station</label>
+                    <input type="text" id="userstation" name="userstation" class="form-control" placeholder="Station IATA code (XXX)" minlength="3" maxlength="3" required>
+                    <label for="userflightnumber" class="sr-only">user flight number</label>
+                    <input type="text" id="userflightnumber" name="userflightnumber" class="form-control" placeholder="Stations flight Number(QR0000)" minlength="3" maxlength="6" required>
+                    <button class="btn btn-lg btn-block signinbtn" type="submit">Add a User</button>
+                    </div>
+                  </form>
+                </div>
+       
+        <div class="col-md-6">
+            <div class="container userlist">
+                <h1>List of all Users</h1>
+                <table>
+                    <tr>
+                        <td>Id</td>
+                        <td>Name</td>
+                        <td>Station</td>
+                        <td>Station Flight</td>
+                        <td>ddd</td>
+                    </tr>
+                    <% allUsers.forEach(e => {%>
+                        <tr class="user-name">
+                            <td><%= e.user_id %></td>
+                            <td><%= e.user_name %></td>
+                            <td><%= e.user_station %></td>
+                            <td><%= e.user_flightNumber %></td>
+                            <td>
+                                <form action="/adminpage/<%=e.user_id%>?_method=DELETE" method="POST">
+                                    <button class="btn admin-delete"><i class="admin-delete-icon far fa-trash-alt fa-lg"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                       
+                    <%}); %> 
+                </table>
+               
+
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<%- include("../partials/footer")  %> 

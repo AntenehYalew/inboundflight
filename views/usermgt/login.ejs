@@ -1,0 +1,31 @@
+<%- include("../partials/header")  %> 
+
+    
+<div class="login-page">
+    <form class="form-signin" action="/" method="POST">
+        <img class="login-logo" src="/images/aircraft.png" alt="">
+        <h1 class="h3 mb-3 font-weight-bold text-center">Inbound Management</h1>
+        <h1 class="h3 mb-3 font-weight-bold text-center">Operation</h1>
+        <div class="form-inputs">
+        <label for="userid" class="sr-only">USER ID</label>
+        <input type="text" id="inputtext" name="username" class="form-control" placeholder="User Name" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-block signinbtn" type="submit">Sign in</button>
+      </div>
+      <% if(loginerror && loginerror.length>0){%>
+        <div class="alert alert-danger" role="alert">
+          <h6><i class="fas fa-exclamation-triangle"></i><%= loginerror %> </h6>
+        </div>
+      <%}  %> 
+      </form>
+
+      
+   
+</div>
+
+
+
+
+
+<%- include("../partials/footer")  %> 

@@ -1,0 +1,272 @@
+
+body{
+  background-color: #f5f5f5;
+  font-family: 'Ubuntu', sans-serif;
+}
+.maincontainer{
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 56px;
+}
+.bg-navbar{
+  background-color: #003399;
+
+}
+.bg-navbar a{
+  color: aliceblue;
+  padding:0.3125rem 1rem;
+  border-radius: 8px;
+}
+
+.bg-navbar a:hover{
+  color: aliceblue;
+  background-color: white;
+  color:  #003399;
+}
+
+.login-page{
+ background-image: url(images/background.jpg);
+ width: 100%;
+ background-size: cover;
+ min-height: 93.5vh;
+ border-radius: 16px;
+ position: relative;
+
+}
+.login-logo{
+  margin: auto;
+  position: relative;
+  display: block;
+  width:92px;
+  height: 92px;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  padding-top: 2rem;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-control:focus{
+    border-color: #003399;
+    box-shadow: 0 0 5px rgba(0, 51, 153, 1);
+}
+.form-signin h1:first-of-type{
+  padding: 1rem 0;
+}
+.form-inputs{
+  padding-top: 2rem;
+
+}
+.form-inputs .form-control{
+  margin: 0.45rem 0;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.signinbtn {
+  background-color:#003399 ;
+  color: white;
+}
+
+.signinbtn:hover{
+  background-color:white;
+  color: #003399;
+  border: 2px solid #003399;
+}
+
+.userlist{
+  margin-top: 3rem;
+  position: relative;
+  width: 100%;
+}
+.userlist .col-4{
+  padding-top: 0.75rem;
+}
+.userlist h1{
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.admin-delete{
+  padding: 0;
+  border: 0;
+}
+.flash-div{
+  width: 100%;
+  height: 53px;
+}
+.flashmessage{
+  text-align: center;
+  margin: auto;
+}
+
+.station-main{
+  width: 80%;
+}
+.station-main-btn{
+  margin: 0.75rem 0;
+  background-color: #003399;
+  color: white;
+}
+.station-main-btn:hover{
+  background-color: white;
+  color: #003399;
+  border: 2px solid #003399;
+}
+.jumbotron{
+  background-color:#f5f5f5;
+}
+
+.form-inputs-station{
+width: 90%;
+margin:auto;
+position: relative;
+padding-top: 3rem;
+}
+.flight-list{
+  margin: auto;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+.flight-list table{
+  margin-bottom: 2rem;
+}
+.flight-list tr td,.flight-list tr th{
+ padding: 0 0.25rem;
+}
+.userlist table{
+  margin: auto;
+  position: relative;
+}
+.userlist tr td{
+  padding: 0.5rem 1rem;
+ }
+.flight-edit, .flight-delete{
+  visibility: hidden;
+  color: #003399;
+}
+.flight-devider{
+  font-size: 1.5rem;
+}
+
+.form-inputs-station .row{
+  padding-bottom: 1.75rem;
+}
+
+.flightstatus{
+  width: 100%;
+  margin: auto;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.flightstatus-smscreen{
+  display: none;
+  margin-top: 0;
+}
+/* .bgscreen-note{
+  margin-bottom: 2rem;
+} */
+.smscreen-devider, .bgscreen-devider{
+  border-bottom: 1px solid #003399;
+}
+.bgscreen-devider p{
+  margin-top: 1rem;
+}
+.bgscreen-devider{
+  padding: 0.35rem 0;
+}
+.flightstatus-smscreen p{
+  margin-bottom: 0;
+}
+.flightstatus-header{
+  padding: 1rem;
+  border-bottom: 1px solid #003399;
+  width: 100%;
+  font-size: 1.35rem;
+  text-align: center;
+}
+.status{
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+}
+.footer{
+  height: 56px;
+  width: 100%;
+  background-color:  #003399;
+  color: aliceblue;
+  position: absolute;
+  bottom: 0;
+  padding: .5rem 1rem;
+}
+.right-footer{
+  border-left: 1px solid white;
+}
+
+
+
+@media (max-width: 500px) {
+  .right-footer{
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .flightstatus-bgscreen{
+    display: none;
+  }
+  .flightstatus-smscreen{
+    display: block;
+  }
+}
+
+.loader {
+  display: none;
+  margin: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #003399;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

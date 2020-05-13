@@ -162,14 +162,14 @@ router.route("/flightstatus")
                                                     if (dataInfo["children"][8]["attribs"]["data-timestamp"]=== ""){
                                                          ATD = "-"
                                                     }else{
-                                                         ATD = (new Date((dataInfo["children"][8]["attribs"]["data-timestamp"]) *1000)).toLocaleString('en-US',options).slice(10,15);
+                                                         ATD = (new Date((dataInfo["children"][8]["attribs"]["data-timestamp"]) *1000)).toLocaleTimeString('en-US',options).slice(0,5);
                                                     }
                                          
                                                     if (dataInfo["children"][9]["attribs"]["data-timestamp"]=== ""){
                                                          STA = "-"
                                                          OSTA="-"
                                                     }else{
-                                                         STA = (new Date((dataInfo["children"][9]["attribs"]["data-timestamp"]) *1000)).toLocaleString('en-US',{hour12:false}).slice(10,15);
+                                                         STA = (new Date((dataInfo["children"][9]["attribs"]["data-timestamp"]) *1000)).toLocaleTimeString('en-US',{hour12:false}).slice(0,5);
                                                          OSTA =dataInfo["children"][9]["attribs"]["data-timestamp"]
                                                     }
                 
@@ -181,20 +181,23 @@ router.route("/flightstatus")
                                                         statusTime = "";
                                                         readableStatus= status
                                                     }else if(status === "Estimated departure  "){
-                                                        statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleString('en-US',options)).slice(10,15);
+                                                        statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleTimeString('en-US',options)).slice(0,5);
                                                         readableStatus="ETD";
                                                     }else if(status==="Landed "){
-                                                        statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleString('en-US',options)).slice(10,15);
+                                                        statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleTimeString('en-US',options)).slice(0,5);
+                                                        console.log (dataInfo["children"][11]["attribs"]["data-timestamp"]);
+                                                        console.log(statusTime)
+                                                        console.log(inFlight.flight_number);
                                                         readableStatus=status;
                                                     }else if(status ==="Estimated "){
-                                                        statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleString('en-US',options)).slice(10,15);
+                                                        statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleTimeString('en-US',options)).slice(0,5);
                                                         readableStatus="ETA";
                                                     }else if(status ==="Delayed "){
                                                         if(dataInfo["children"][8]["attribs"]["data-timestamp"]=== ""){
-                                                            statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleString('en-US',options)).slice(10,15);
+                                                            statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleTimeString('en-US',options)).slice(10,15);
                                                             readableStatus="ETD"
                                                         }else{
-                                                            statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleString('en-US',{hour12:false})).slice(10,15);
+                                                            statusTime = ((new Date((dataInfo["children"][11]["attribs"]["data-timestamp"]) *1000)).toLocaleTimeString('en-US',{hour12:false})).slice(10,15);
                                                             readableStatus="ETA"
                                                         }
                                                     }else if (status.includes("Diverted to") === true){
@@ -206,7 +209,7 @@ router.route("/flightstatus")
                                                             "flightNumber":inFlight.flight_number,
                                                             "routing":(dataInfo["children"][3]["children"][0]["next"]["children"][0]["data"]).slice(1,4) + "/" + user_station,
                                                             "STA":STA,
-                                                            "STD":((new Date((dataInfo["children"][7]["attribs"]["data-timestamp"]) *1000)).toLocaleString('en-US',options)).slice(10,15),
+                                                            "STD":((new Date((dataInfo["children"][7]["attribs"]["data-timestamp"]) *1000)).toLocaleTimeString('en-US',options)).slice(10,15),
                                                             "ATD":ATD,
                                                             "OSTA":OSTA,
                                                             "status":readableStatus,
